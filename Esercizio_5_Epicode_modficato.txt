@@ -1,0 +1,79 @@
+#include <stdio.h>
+
+void menu ();
+void moltiplica ();
+void dividi ();
+void ins_string();
+/*menu scelta utente*/
+
+int main () 
+
+{
+	char scelta = {'\0'};             //parentesi graffe non necessarie
+	menu ();
+	scanf ("%d", &scelta);            //qua va inserito "%c" perchè la scelta sara di tipo char 
+
+	switch (scelta)
+	{
+		case 'A':
+		moltiplica();
+		break;
+		case 'B':
+                dividi();
+                break;
+		case 'C':
+                ins_string();
+                break;
+	}
+
+return 0;
+
+}
+
+/* Menu visula per l'utente*/
+void menu ()
+{
+	printf ("Benvenuto, sono un assitente digitale, posso aiutarti a sbrigare alcuni compiti\n");
+	printf ("Come posso aiutarti?\n");
+	printf ("A >> Moltiplicare due numeri\nB >> Dividere due numeri\nC >> Inserire una stringa\n");
+
+}
+
+/* funzione moltiplica*/
+void moltiplica ()
+{
+	short int  a,b = 0;
+	printf ("Inserisci i due numeri da moltiplicare:");
+	scanf ("%f", &a);  // la variabile e scansionata %f invece che %d che il valore giusto visto che è stata dichairata come intero
+ 	scanf ("%d", &b);
+
+	short int prodotto = a * b;
+
+	printf ("Il prodotto tra %d e %d e': %d", a,b,prodotto);
+}
+
+/*funzione dividi*/
+void dividi ()
+{
+        int  a,b = 0;
+        printf ("Inserisci il numeratore:");
+        scanf ("%d", &a);
+	printf ("Inserisci il denumeratore:"); //errore grammaticale denumeratore invece che denominatore
+        scanf ("%d", &b);
+
+        int divisione = a % b; //il simbolo utilizzato per la divisione / è questo e non % che serve per avere il resto di una divisione tra due numeri
+
+        printf ("La divisione tra %d e %d e': %d", a,b,divisione);
+}
+
+
+
+/*funzione stringa*/
+
+void ins_string () 
+{
+	char stringa[10];
+        printf ("Inserisci la stringa:");
+         scanf ("%s", &stringa); // manca printf per stampare a video la stringa scelta dal utente e manca un controllo sulla stringa per evitare di inserire un numero più grande
+}
+
